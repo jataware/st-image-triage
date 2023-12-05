@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: monospace;
+      overflow: hidden;
+      /* background-color: #222222; */
+      background-color: black;
+    }
+
+    #app {
+      height: 750px;
+      width: 100%;
+      /* background: rgba(32,32,32,255); */
+      background-color: black;
+      border-color: black;
+      border-width: 100px;
+    }
+
+/* Split the screen in half */
+.split {
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  width:20%;
+  background-color: white;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  width:80%;
+}
+
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+</body>
+</html>
+
