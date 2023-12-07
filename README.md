@@ -5,7 +5,7 @@ A Streamlit app for image triage (visualization, exploration, search, annotation
 ## Installation + Usage
 
 ```bash
-docker build st-image-triage .
+docker build -t st-image-triage .
 docker run -p 8501:8501 st-image-triage
 ```
 
