@@ -64,9 +64,9 @@ const UMap = (props: ComponentProps) => {
   const [unsaved, setUnsaved]  = useState(false);
 
   useEffect(() => { 
-    console.log('!!!!!!!!!!!! INIT')
     setF2Label(config.f2label); 
     setClasses(config.classes);
+  // eslint-disable-next-line
   }, []);
   
   const colors = make_colors(config, f2label, classes)
@@ -206,7 +206,7 @@ const UMap = (props: ComponentProps) => {
                 return;
               }
 
-              if(classes.length == 9) {
+              if(classes.length === 9) {
                 alert(`Alert: You've hit the maximum of 9 classes!`);
                 return;
               }
@@ -223,9 +223,10 @@ const UMap = (props: ComponentProps) => {
         />
         <List>
           {classes.map((lab) => {
-            if(lab === null) return;
+            if(lab === null) return null;
             
             let style = {}
+            // eslint-disable-next-line
             if(lab == curr_lab) {
               const c               = _PALLETTE[classes.indexOf(lab)];
               style.color           = 'white';

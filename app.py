@@ -246,6 +246,32 @@ def main():
     
     with st.sidebar:
         st.markdown("## Image Triage")
+
+        with st.expander("Documentation"):
+                st.markdown("""
+                    1) Upload a .zip file containing a directory of images.
+                    2) The app will use OpenAI's CLIP neural network to embed the images.
+                    3) There are a number of ways to compute the layout of the data:
+                        
+                        a) (Default) Explore - Layout images such that "similar" images are close together
+                        
+                        b) Text Query - Find images that are "similar" to an English text query
+                        
+                        c) Image Query - Find images that are "similar" to an uploaded image
+                        
+                        d) Query by Class - Find images that are "similar" to an annotation class
+                    
+                    Note that in {a, b, c}, images are orders left-to-right, top-to-bottom, so the "most similar" images are in the top left corner.
+                    
+                    4) Annotate data by 
+                        - adding a class name with the "Add Classes..." menu
+                        - hovering over images in the display while holding the `1` key for the first class, `2` key for the second class, etc
+                        - to save annotations, press the `command` key 
+                    
+                    5) download for downstream use.
+                    
+                    _Note:_ This is beta software, and we'd love to hear about bugs / feedback.  _Please_ contact Data Team / @bkj on wildfire for help!
+                """)
         
         uploaded_file = st.file_uploader("Upload Images", type='zip')
         if uploaded_file is None: return
