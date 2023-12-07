@@ -1,17 +1,13 @@
+-f https://download.pytorch.org/whl/torch_stable.html 
 streamlit==1.27.2
 pyvips==2.2.1
 tqdm==4.66.1
 stqdm==0.0.5
 umap-learn==0.5.4
-tifffile==2023.9.26 # can be removed (?)
+tifffile==2023.9.26
 git+https://github.com/Quasimondo/RasterFairy@dd6624370bd136b7f9b19061985aca6ac8b4e38b
 git+https://github.com/jataware/ez_feat@984c8a252e83514026865a020d7e9cbbacd10e98
-
--f https://download.pytorch.org/whl/torch_stable.html 
 torch==2.1.0+cpu
-
--f https://download.pytorch.org/whl/torch_stable.html
 torchvision==0.16.0+cpu
-
 transformers==4.34.1
-datasets==2.14.5 # 
+datasets==2.14.5
