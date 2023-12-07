@@ -45,3 +45,9 @@ npm install
 npm run build
 cd ../../../
 ```
+
+Run (as above):
+```bash
+./scripts/clean.sh # clear your cache, just in case
+streamlit run app.py
+```
