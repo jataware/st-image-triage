@@ -106,23 +106,23 @@ class CLIPWrapper:
 
 @st.cache_data(show_spinner=False, persist=PERSIST)
 def _unzip(uploaded_file):
-    with zipfile.ZipFile(uploaded_file, 'r') as zip_ref:
-        mid, *_ = zipfile.Path(zip_ref).iterdir()
-        mid = mid.name
+    mid = uploaded_file.name.replace('.zip', '')
     
     if os.path.exists(os.path.join(IMG_DIR, mid)):
         print('_unzip: removing old directory')
         shutil.rmtree(os.path.join(IMG_DIR, mid))
     
     with zipfile.ZipFile(uploaded_file, 'r') as zip_ref:
-        zip_ref.extractall(path=IMG_DIR)
+        zip_ref.extractall(path=f'{IMG_DIR}/{mid}')
 
     # TODO - more generic solution
     fnames = sorted(
-        glob(os.path.join(f'./{IMG_DIR}', mid, '*.png')) +
-        glob(os.path.join(f'./{IMG_DIR}', mid, '*.jpg')) +
-        glob(os.path.join(f'./{IMG_DIR}', mid, '*.jpeg'))
+        glob(os.path.join(f'./{IMG_DIR}', mid, '**/*.png'), recursive=True) +
+        glob(os.path.join(f'./{IMG_DIR}', mid, '**/*.jpg'), recursive=True) +
+        glob(os.path.join(f'./{IMG_DIR}', mid, '**/*.jpeg'), recursive=True)+
+        glob(os.path.join(f'./{IMG_DIR}', mid, '**/*.bmp'), recursive=True)
     )
+    # print(f'fnames = {fnames}')
     return mid, fnames
 
 
